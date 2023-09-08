@@ -65,7 +65,7 @@ $('#withdraw').on('click', function() {
     
     return new Promise(async (resolve, reject) => {
       let reward=await stakeContract.methods.getUserDividends(user.address).call();
-      $("#getUserDividends").text("Dividend:" +web3.utils.fromWei(reward),"ether"+"  "+ "SQUAD");
+      $("#getUserDividends").text("Dividend:" +web3.utils.fromWei(reward),"ether"+"  "+ "SQP");
     })}
     async function getPercent() {
       let planId=$("#getPercentPlanId").val();
@@ -92,7 +92,7 @@ async function getUserAvailable() {
     let data=await stakeContract.methods.getUserAvailable(user.address).call();
     dataTrunc = data / 1e18;
     //console.log("available",data);
-    $("#getUserAvailable").text(abrNum(dataTrunc, 4)+" "+"SQUAD");
+    $("#getUserAvailable").text(abrNum(dataTrunc, 4)+" "+"SQP");
   })
 }
 async function getUserReferralBonus() {
@@ -101,7 +101,7 @@ async function getUserReferralBonus() {
     let data=await stakeContract.methods.getUserReferralBonus(user.address).call();
 	dataTrunc = data / 1e18;
     //console.log("data",data);
-    $("#getUserReferralBonus").text(abrNum(dataTrunc, 4)+" "+"SQUAD");
+    $("#getUserReferralBonus").text(abrNum(dataTrunc, 4)+" "+"SQP");
   })
 }
 async function getUserReferralWithdrawn() {
@@ -110,16 +110,16 @@ async function getUserReferralWithdrawn() {
     let data=await stakeContract.methods.getUserReferralWithdrawn(user.address).call();
 	dataTrunc = data / 1e18;
     //console.log("data",data);
-    $("#getUserReferralWithdrawn").text(abrNum(dataTrunc, 4)+" "+"SQUAD");
+    $("#getUserReferralWithdrawn").text(abrNum(dataTrunc, 4)+" "+"SQP");
   })
 }
 async function getUserTotalDeposits() {
     let depositData = await stakeContract.methods.getUserTotalDeposits(user.address).call();
 	depositDataTrunc = depositData / 1e18;
     //console.log("depositTotal",depositData);
-    $("#getUserTotalDeposits").text(abrNum(depositDataTrunc, 4)+" "+"SQUAD");
+    $("#getUserTotalDeposits").text(abrNum(depositDataTrunc, 4)+" "+"SQP");
 	userTokens = await tokenContract.methods.balanceOf(user.address).call() / 1e18;
-	$("#user-tokens").text(abrNum(userTokens,2)+" "+"SQUAD");
+	$("#user-tokens").text(abrNum(userTokens,2)+" "+"SQP");
 }
 async function getUserDownlineCount() {
   
@@ -201,7 +201,7 @@ async function getUserReferralTotalBonus() {
   return new Promise(async (resolve, reject) => {
     let dataFull = (await stakeContract.methods.getUserReferralTotalBonus(user.address).call() / 1e18);
 	let data = abrNum(dataFull, 4)
-    $("#getUserReferralTotalBonus").text(data+" "+"SQUAD");
+    $("#getUserReferralTotalBonus").text(data+" "+"SQP");
   })
 }
  
@@ -273,7 +273,7 @@ function getWithdrawTimer() {
 	
 	  if (distance < 0) {
 		clearInterval(x);
-		document.getElementById('withdrawTimer').innerHTML = "Withdraw SQUAD";
+		document.getElementById('withdrawTimer').innerHTML = "Withdraw SQP";
 	  }
 	
 	}, 1000);
