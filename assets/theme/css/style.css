@@ -53,7 +53,7 @@ a{
 }
 
 .container{
-  max-width: 100%;
+  max-width: 1224px;
   width: 92%;
   margin: 0 auto;
 }
@@ -66,7 +66,7 @@ a{
 }
 
 .nav-branding{
-  font-size: 4rem;
+  font-size: 2rem;
 }
 
 .nav-menu{
@@ -99,6 +99,41 @@ a{
   background-color: white;
 }
 
+@media(max-width:1024px){
+  .hamburger{
+    display: block;
+  }
+
+  .hamburger.active .bar:nth-child(2){
+    opacity: 0;
+  }
+  .hamburger.active .bar:nth-child(1){
+    transform: translateY(8px) rotate(45deg);
+  }
+  .hamburger.active .bar:nth-child(3){
+    transform: translateY(-8px) rotate(-45deg);
+  }
+
+  .nav-menu{
+    position: fixed;
+    left: -100%;
+    top: 70px;
+    gap: 0;
+    flex-direction: column;
+    background-color: #262626;
+    width: 100%;
+    text-align: center;
+    transition: 0.3s;
+  }
+
+  .nav-item{
+    margin: 16px 0;
+  }
+
+  .nav-menu.active{
+    left: 0;
+  }
+}
 
 
 section,
@@ -146,7 +181,7 @@ h6,
 .display-2,
 .display-3,
 .display-4 {
-  line-height: 1;
+  line-height: 10;
   word-break: break-word;
   font-weight: inherit;
   word-wrap: break-word; }
