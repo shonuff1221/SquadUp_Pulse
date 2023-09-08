@@ -829,5 +829,5 @@ contract ERC20 is Context, IERC20 {
  * Code is proprietary property of Zin Finance and must not be copied or used elsewhere.
  */
 contract SquadUp_Pulse is ERC20 {
-    constructor() public ERC20("SquadUp", "SQD") {}
+    constructor() public ERC20("SquadUpPulse", "SQD") {}
 }

@@ -12,7 +12,7 @@ contract Percentage{
         return  Percent;
     }
 }
-contract SQUAD_UP is Percentage{
+contract SQP_Staking is Percentage{
 	using SafeMath for uint256;
 
 	uint256 constant public INVEST_MIN_AMOUNT = 1 ether;
@@ -70,12 +70,12 @@ contract SQUAD_UP is Percentage{
 		commissionWallet = wallet;
 		startUNIX = startDate;
         token=_token;
-        plans.push(Plan(1, 1100));
-        plans.push(Plan(3, 400));
-        plans.push(Plan(7,300));
-        plans.push(Plan(14, 260));
-        plans.push(Plan(21, 240));
-        plans.push(Plan(28, 220));
+        plans.push(Plan(1, 1170));
+        plans.push(Plan(3, 450));
+        plans.push(Plan(7,400));
+        plans.push(Plan(14, 420));
+        plans.push(Plan(21, 429));
+        plans.push(Plan(28, 430));
 	}
 
 	function invest(address referrer, uint8 plan,uint256 _numberOfToken) public {
