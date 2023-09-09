@@ -84,7 +84,7 @@ async function getUserWithdrawTime() {
     lastWithdrawTime = await stakeContract.methods.getUserWithdrawTime(user.address).call();
 	nextWithdraw = parseInt(lastWithdrawTime) + 86400;
 	getWithdrawTimer();
-	//console.log("withdraw time",lastWithdrawTime);
+	console.log("withdraw time",lastWithdrawTime);
 }
 async function getUserAvailable() {
   
