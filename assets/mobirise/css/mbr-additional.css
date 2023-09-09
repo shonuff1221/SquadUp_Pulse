@@ -52,23 +52,55 @@ body {
 .display-7 > .mbr-iconfont {
   font-size: 1.92rem;
 }
+td:before {
+  content: attr(data-cell) " ";   
+  font-weight: bold;
+}
 /* ---- Fluid typography for mobile devices ---- */
 /* 1.4 - font scale ratio ( bootstrap == 1.42857 ) */
 /* 100vw - current viewport width */
 /* (48 - 20)  48 == 48rem == 768px, 20 == 20rem == 320px(minimal supported viewport) */
 /* 0.65 - min scale variable, may vary */
-@media (max-width: 1310px) {
+@media (max-width: 2558px) {
   .display-me {
     font-family: 'Jost', sans-serif;
-    font-size: 1.1rem;
+    font-size: .8rem;
     line-height: 1.4;
   }
+  td:nth-of-type(7n){
+    background: linear-gradient(210deg, #00eaff 0%, #0080ff 25%, #8000ff 50%, #e619e6 75%, #f00 100%);
+  }
+  
 }
 @media (max-width: 856px) {
+  td {
+    display: block;
+  }
+  th {
+    display: none;
+  }
   .display-me {
     font-family: 'Jost', sans-serif;
     font-size: .9rem;
     line-height: 1.4;
+  }
+  td:before {
+    content: attr(data-cell) ": ";   
+    font-weight: bold;
+  }
+}
+@media (max-width: 654px) {
+  .display-me {
+    font-family: 'Jost', sans-serif;
+    font-size: .3rem;
+    line-height: 1.4;
+  }
+}
+@media (max-width: 360px) {
+  .display-me {
+    font-family: 'Jost', sans-serif;
+    font-size: .1rem;
+    line-height: calc( 1.4 * (1.07rem + (1.2 - 1.07) * ((100vw - 20rem) / (48 - 20))));
   }
 }
 

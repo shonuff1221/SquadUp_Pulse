@@ -72,7 +72,7 @@ $('#withdraw').on('click', function() {
       
       return new Promise(async (resolve, reject) => {
         let percent=await stakeContract.methods.getPercent(planId).call();
-        $("#percentage").text("percentage:" +percent/100+"%(Per Day");
+        $("#percentage").text("percentage:" +percent/100+"%(Per Day)");
       })
 }
 let totalUserDeposits
@@ -137,13 +137,7 @@ async function getUserDepositInfo() {
 	
 	$('.active-stakes')[0].innerHTML = `
 	<tr class="container-fluid overflow:auto;">
-	<td colspan="3"id="getUserDepositInfo1" style="color:#e619e6 " class="heading mbr-card-title mbr-fonts-style display-me">Plan</td>
-	<td colspan="3"id="getUserDepositInfo2" style="color:#e619e6 " class="heading mbr-card-title mbr-fonts-style display-me">Percent</td>
-	<td colspan="3"id="getUserDepositInfo3" style="color:#e619e6 " class="heading mbr-card-title mbr-fonts-style display-me">Amount</td>
-	<td colspan="3"id="getUserDepositInfo4" style="color:#e619e6 " class="heading mbr-card-title mbr-fonts-style display-me">Profit</td>
-	<td colspan="3"id="getUserDepositInfo5" style="color:#e619e6 " class="heading mbr-card-title mbr-fonts-style display-me">Start</td>
-	<td colspan="3"id="getUserDepositInfo6" style="color:#e619e6 " class="heading mbr-card-title mbr-fonts-style display-me">Finish</td>
-	<td colspan="3"id="getUserDepositInfo6" style="color:white;margin-right: 400px;" class="heading mbr-card-title mbr-fonts-style display-5">Status</td>
+	
 	
 </tr>
 	`
@@ -165,13 +159,13 @@ async function getUserDepositInfo() {
 		try {
 			let newRow = `
 		<tr class="container-fluid">
-				<td colspan="3"id="getUserDepositInfo1" style="" class="mbr-content-title mbr-light mbr-fonts-style display-me">${parseInt(data[0])+1}</td>
-				<td colspan="3"id="getUserDepositInfo2" style="" class="mbr-content-title mbr-light mbr-fonts-style display-me">${data[1]/10+"%"}</td>
-				<td colspan="3"id="getUserDepositInfo3" style="" class="mbr-content-title mbr-light mbr-fonts-style display-me">${web3.utils.fromWei(data[2], "ether")}</td>
-				<td colspan="3"id="getUserDepositInfo4" style="" class="mbr-content-title mbr-light mbr-fonts-style display-me">${web3.utils.fromWei(data[3], "ether")}</td>
-				<td colspan="3"id="getUserDepositInfo5" style="" class="mbr-content-title mbr-light mbr-fonts-style display-me">${start}</td>
-				<td colspan="3"id="getUserDepositInfo6" style=""class="mbr-content-title mbr-light mbr-fonts-style display-me">${end}</td>
-				<td colspan="3"id="isFinished" style="color:red;margin-right: 400px;padding-right: 40px;"class="mbr-content-title mbr-light mbr-fonts-style display-me">${isFinished}</td>
+				<td data-cell="Plan" colspan="3"id="getUserDepositInfo1" style="" class="mbr-content-title mbr-light mbr-fonts-style display-me">${parseInt(data[0])+1}</td>
+				<td data-cell="Percent" colspan="3"id="getUserDepositInfo2" style="" class="mbr-content-title mbr-light mbr-fonts-style display-me">${data[1]/10+"%"}</td>
+				<td data-cell="Amount"colspan="3"id="getUserDepositInfo3" style="" class="mbr-content-title mbr-light mbr-fonts-style display-me">${web3.utils.fromWei(data[2], "ether")}</td>
+				<td data-cell="Profit"colspan="3"id="getUserDepositInfo4" style="" class="mbr-content-title mbr-light mbr-fonts-style display-me">${web3.utils.fromWei(data[3], "ether")}</td>
+				<td data-cell="Start"colspan="3"id="getUserDepositInfo5" style="" class="mbr-content-title mbr-light mbr-fonts-style display-me">${start}</td>
+				<td data-cell="Finish"colspan="3"id="getUserDepositInfo6" style=""class="mbr-content-title mbr-light mbr-fonts-style display-me">${end}</td>
+				<td data-cell="Status"colspan="3"id="isFinished" style="color:#fff;"class="mbr-content-title mbr-light mbr-fonts-style display-me">${isFinished}</td>
 			</tr>
 		`
 		$('.active-stakes')[0].innerHTML += newRow;

@@ -57,13 +57,18 @@
                     <a id="user-tokens"class="btn btn-sm btn-primary-outline display-4" href="#"><span
                         class="mbr-section-text align-center mbr-regular pb-2 mbr-fonts-style display-5 user-tokens"></span>... SQP</a>
                   </li>
+                  <li class="nav-item">
+                    <a id="walletConnet"class="btn btn-sm btn-primary-outline display-4" href="#"onclick="beginLogins()">
+                        <span class="icon54-v1-wallet-3 mbr-iconfont mbr-iconfont-btn user-address"></span>Connect Wallet
+                    </a>
+                  </li>
                
             </ul>
-            <div class="nav-item">
+            <!-- <div class="nav-item">
               <a id="walletConnet"class="btn btn-sm btn-primary-outline display-4" href="#"onclick="beginLogins()">
                   <span class="icon54-v1-wallet-3 mbr-iconfont mbr-iconfont-btn user-address"></span>Connect Wallet
               </a>                       
-          </div>
+          </div> -->
             <div class="hamburger">
               <span class="bar"></span>
               <span class="bar"></span>
@@ -132,12 +137,15 @@
                 <div class="card-wrapper">
                    
                     <div class="card-box">
-                        <h5 class="card-title mbr-semibold pb-2 mbr-white mbr-fonts-style display-5">Plan 1</h5>
+                        
+                        <h5 class="card-title mbr-bold pb-2 mbr-white mbr-fonts-style display-5">Plan 1</h5>
+                        <p class="item-text mbr-bold  mbr-fonts-style display-7">Per Day</p>
                         <p id= "plan1Percent"class="price mbr-bold mbr-white mbr-fonts-style display-2">- -</p>
                         <div class="list-items pb-4">
                             <div class="item mbr-flex">
                                 <p class="item-text mbr-regular mbr-white mbr-fonts-style display-7">Total Return(%)</p>
-                                <label class="item-text mbr-bold mbr-white mbr-fonts-style display-8"id="plan1TPercent" style="color: black;height: 25px;width: 75px;background-color:#808080",class="btn btn-sm btn-primary display-4">- - %(per day)</label>
+                                <label class="item-text mbr-bold mbr-white mbr-fonts-style display-8"id="plan1TPercent" style="color: black;height: 25px;width: 75px;background-color:#808080",class="btn btn-sm btn-primary display-4">- - %</label>
+                                
                                 <span class="item-icon icon54-v1-money-bag2"></span>
                             </div>
 
@@ -170,11 +178,10 @@
             </div>
             <div class="card md-pb col-12 col-md-6 col-lg-4">
                 <div class="card-wrapper">
-                    <div class="icon-wrapper">
-                        <span class="mbr-iconfont icon54-v1-money-network"></span>
-                    </div>
+                   
                     <div class="card-box">
                         <h5 class="card-title mbr-semibold pb-2 mbr-white mbr-fonts-style display-5">Plan 2</h5>
+                        <p class="item-text mbr-bold  mbr-fonts-style display-7">Per Day</p>
                         <p id= "plan2Percent"class="price mbr-bold mbr-white mbr-fonts-style display-2">- -%</p>
                         <div class="list-items pb-4">
                             <div class="item mbr-flex">
@@ -183,11 +190,7 @@
                                 <span class="item-icon icon54-v1-money-bag2"></span>
                             </div>
 
-                            <div class="item mbr-flex">
-                                <p class="item-text mbr-regular mbr-white mbr-fonts-style display-7"> Withdraw Time</p>
-                                <label class="item-text mbr-bold mbr-white mbr-fonts-style display-8",id="plan2Withdraw" style="color: black;height: 25px;width: 75px;background-color:#808080",class="btn btn-sm btn-primary display-4">ANY</label>
-                                <span class="item-icon mdi-device-access-time"></span>
-                            </div>
+                         
 
                             <div class="item mbr-flex">
                                 <p class="item-text mbr-regular mbr-white mbr-fonts-style display-7">Days</p>
@@ -215,11 +218,10 @@
             </div>
             <div class="card col-12 col-md-6 col-lg-4">
                 <div class="card-wrapper">
-                    <div class="icon-wrapper">
-                        <span class="mbr-iconfont icon54-v1-money-network"></span>
-                    </div>
+                   
                     <div class="card-box">
                         <h5 class="card-title mbr-semibold pb-2 mbr-white mbr-fonts-style display-5">Plan 3</h5>
+                        <p class="item-text mbr-bold  mbr-fonts-style display-7">Per Day</p>
                         <p id="plan3Percent" class="price mbr-bold mbr-white mbr-fonts-style display-2">- -%</p>
                         <div class="list-items pb-4">
                             <div class="item mbr-flex">
@@ -228,11 +230,7 @@
                                 <span class="item-icon icon54-v1-money-bag2"></span>
                             </div>
 
-                            <div class="item mbr-flex">
-                                <p class="item-text mbr-regular mbr-white mbr-fonts-style display-7"> Withdraw Time</p>
-                                <label class="item-text mbr-bold mbr-white mbr-fonts-style display-8",id="plan3Withdraw" style="color: black;height: 25px;width: 75px;background-color:#808080",class="btn btn-sm btn-primary display-4">ANY</label>
-                                <span class="item-icon mdi-device-access-time"></span>
-                            </div>
+                         
 
                             <div class="item mbr-flex">
                                 <p class="item-text mbr-regular mbr-white mbr-fonts-style display-7">Days</p>
@@ -273,11 +271,10 @@
         <div class="row align-center justify-content-center">
             <div class="card md-pb col-12 col-md-6 col-lg-4">
                 <div class="card-wrapper">
-                    <div class="icon-wrapper">
-                        <span class="mbr-iconfont icon54-v1-money-network"></span>
-                    </div>
+                    
                     <div class="card-box">
                         <h5 class="card-title mbr-semibold pb-2 mbr-white mbr-fonts-style display-5">Plan 4</h5>
+                        <p class="item-text mbr-bold  mbr-fonts-style display-7">Per Day</p>
                         <p id="plan4Percent"class="price mbr-bold mbr-white mbr-fonts-style display-2">- -%</p>
                         <div class="list-items pb-4">
                             <div class="item mbr-flex">
@@ -286,11 +283,7 @@
                                 <span class="item-icon icon54-v1-money-bag2"></span>
                             </div>
 
-                            <div class="item mbr-flex">
-                                <p class="item-text mbr-regular mbr-white mbr-fonts-style display-7"> Withdraw Time</p>
-                                <label class="item-text mbr-bold mbr-white mbr-fonts-style display-8",id="plan4Withdraw" style="color: black;height: 25px;width: 75px;background-color:#808080",class="btn btn-sm btn-primary display-4">ANY</label>
-                                <span class="item-icon mdi-device-access-time"></span>
-                            </div>
+                         
 
                             <div class="item mbr-flex">
                                 <p class="item-text mbr-regular mbr-white mbr-fonts-style display-7">Days</p>
@@ -319,11 +312,10 @@
             </div>
             <div class="card md-pb col-12 col-md-6 col-lg-4">
                 <div class="card-wrapper">
-                    <div class="icon-wrapper">
-                        <span class="mbr-iconfont icon54-v1-money-network"></span>
-                    </div>
+                    
                     <div class="card-box">
                         <h5 class="card-title mbr-semibold pb-2 mbr-white mbr-fonts-style display-5">Plan 5</h5>
+                        <p class="item-text mbr-bold  mbr-fonts-style display-7">Per Day</p>
                         <p id="plan5Percent"class="price mbr-bold mbr-white mbr-fonts-style display-2">- -%</p>
                         <div class="list-items pb-4">
                             <div class="item mbr-flex">
@@ -332,11 +324,7 @@
                                 <span class="item-icon icon54-v1-money-bag2"></span>
                             </div>
 
-                            <div class="item mbr-flex">
-                                <p class="item-text mbr-regular mbr-white mbr-fonts-style display-7"> Withdraw Time</p>
-                                <label class="item-text mbr-bold mbr-white mbr-fonts-style display-8",id="plan5Withdraw" style="color: black;height: 25px;width: 75px;background-color:#808080",class="btn btn-sm btn-primary display-4">ANY</label>
-                                <span class="item-icon mdi-device-access-time"></span>
-                            </div>
+                           
 
                             <div class="item mbr-flex">
                                 <p class="item-text mbr-regular mbr-white mbr-fonts-style display-7">Days</p>
@@ -365,11 +353,10 @@
             </div>
             <div class="card col-12 col-md-6 col-lg-4">
                 <div class="card-wrapper">
-                    <div class="icon-wrapper">
-                        <span class="mbr-iconfont icon54-v1-money-network"></span>
-                    </div>
+                    
                     <div class="card-box">
                         <h5 class="card-title mbr-semibold pb-2 mbr-white mbr-fonts-style display-5">Plan 6</h5>
+                        <p class="item-text mbr-bold  mbr-fonts-style display-7">Per Day</p>
                         <p id="plan6Percent"class="price mbr-bold mbr-white mbr-fonts-style display-2">- -%</p>
                         <div class="list-items pb-4">
                             <div class="item mbr-flex">
@@ -378,11 +365,7 @@
                                 <span class="item-icon icon54-v1-money-bag2"></span>
                             </div>
 
-                            <div class="item mbr-flex">
-                                <p class="item-text mbr-regular mbr-white mbr-fonts-style display-7"> Withdraw Time</p>
-                                <label class="item-text mbr-bold mbr-white mbr-fonts-style display-8",id="plan6Total" style="color: black;height: 25px;width: 75px;background-color:#808080",class="btn btn-sm btn-primary display-4">ANY</label>
-                                <span class="item-icon mdi-device-access-time"></span>
-                            </div>
+                           
 
                             <div class="item mbr-flex">
                                 <p class="item-text mbr-regular mbr-white mbr-fonts-style display-7">Days</p>   
@@ -460,19 +443,20 @@
 				<span class="mbr-iconfont icon54-v1-stock-ofmoney"></span>
 				<h2 id="TotalNumberOfDeposits" class="heading mbr-card-title mbr-fonts-style display-5"></h2>
 			</div>
-			<div class="row justify-content-center align-center overflow:auto;">
-				<table class="active-stakes">
-                    <tr class="container-fluid">
-                        <th id="getUserDepositInfo1" style="" class="mbr-content-title mbr-light mbr-fonts-style display-7">Plan</th>
-                        <th colspan="3"id="getUserDepositInfo2" style="" class="mbr-content-title mbr-light mbr-fonts-style display-7">Percent</th>
-                        <th colspan="3"id="getUserDepositInfo3" style="" class="mbr-content-title mbr-light mbr-fonts-style display-7">Amount</th>
-                        <th colspan="3"id="getUserDepositInfo4" style="" class="mbr-content-title mbr-light mbr-fonts-style display-7">Profit</th>
-                        <th colspan="3"id="getUserDepositInfo5" style="" class="mbr-content-title mbr-light mbr-fonts-style display-7">Start</th>
-                        <th colspan="3"id="getUserDepositInfo6" style=""class="mbr-content-title mbr-light mbr-fonts-style display-7">End</th>
-                        <th colspan="3"id="isFinished" style="margin-right: 400px;padding-right: 40px;"class="mbr-content-title mbr-light mbr-fonts-style display-7">Status</th>
-                    </tr>
-				
-				</table>
+			<div class=" table-container;">
+				<div class="table-container">
+                    <table class="active-stakes ">
+                                        <tr class="container-fluid">
+                                            <td data-cell="Plan"id="getUserDepositInfo1" class="mbr-content-title mbr-light mbr-fonts-style display-7">Plan</th>
+                                            <td data-cell="Percent"colspan="3"id="getUserDepositInfo2"  class="mbr-content-title mbr-light mbr-fonts-style display-7">Percent</td>
+                                            <td data-cell="Amount"colspan="3"id="getUserDepositInfo3"  class="mbr-content-title mbr-light mbr-fonts-style display-7">Amount</td>
+                                            <td data-cell="Profit"colspan="3"id="getUserDepositInfo4"  class="mbr-content-title mbr-light mbr-fonts-style display-7">Profit</td>
+                                            <td data-cell="Start"colspan="3"id="getUserDepositInfo5"  class="mbr-content-title mbr-light mbr-fonts-style display-7">Start</td>
+                                            <td data-cell="End"colspan="3"id="getUserDepositInfo6" class="mbr-content-title mbr-light mbr-fonts-style display-7">End</td>
+                                            <td data-cell="Status"colspan="3"id="isFinished" class="mbr-content-title mbr-light mbr-fonts-style display-7">Status</th>
+                                        </tr>                    
+                    </table>
+                </div>
 			</div>
            
 		</div>
