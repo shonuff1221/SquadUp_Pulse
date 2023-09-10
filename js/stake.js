@@ -3,7 +3,7 @@
 var nextWithdraw = 0
 async function startUp(){
 	checkAllowance()
-	$('#reflink')[0].innerHTML = thisURL+"/?ref="+ user.address;
+	$('#reflink')[0].innerHTML = thisURL+"/buySQP.html"+"?ref="+ user.address;
 	contractBalances()
 	planPercents()
 	await getTotalNumberOfDeposits()
@@ -253,6 +253,7 @@ function getWithdrawTimer() {
 
 	const timeEnd = parseInt(nextWithdraw);
 	const milliseconds = timeEnd * 1000 // 1606073880000
+	
 	const dateObject = new Date(milliseconds)
 	const humanDateFormat = dateObject.toLocaleString() 
     //console.log(humanDateFormat)
@@ -260,20 +261,20 @@ function getWithdrawTimer() {
 	
 	var x = setInterval(function () {
 	  var now = new Date().getTime();
-	  var distance = humanDateFormat - now;
+	  var distance = dateObject - now;
 	  //var days = Math.floor(distance / (1000 * 60 * 60 * 24));
 	  var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
 	  var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
 	  var seconds = Math.floor((distance % (1000 * 60)) / 1000);
 	
-	  document.getElementById('withdrawTimer').innerHTML = humanDateFormat;
+	  document.getElementById('withdrawTimer').innerHTML = "Withdraw in: "+hours + "h " + minutes + "m " + seconds + "s ";
 	
-	  if (milliseconds < timeEnd) {
+	  if (distance < 0) {
 		clearInterval(x);
 		document.getElementById('withdrawTimer').innerHTML = "Withdraw SQP";
 	  }
 	
-	}, );
+	}, 1000);
 	}
 	async function beginLogins(){
 		await ethereum.request({method: 'eth_requestAccounts'})
