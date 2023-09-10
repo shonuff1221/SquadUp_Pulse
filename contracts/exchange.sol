@@ -64,7 +64,7 @@ contract SquadUp_PulseExchange is SquadUp_Pulse, Percentage {
     =            CONFIGURABLES            =
     =====================================*/
     address payable owner;
-    uint256 internal constant dividendFee_ = 8;
+    uint256 internal constant dividendFee_ = 3;
     uint256 internal constant refferalBonus = 2;
     uint256 internal constant tokenPriceInitial_ = 0.005 ether;
     uint256 internal constant tokenPriceIncremental_ = 0.00001 ether;

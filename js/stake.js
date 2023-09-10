@@ -84,7 +84,7 @@ async function getUserWithdrawTime() {
     lastWithdrawTime = await stakeContract.methods.getUserWithdrawTime(user.address).call();
 	nextWithdraw = parseInt(lastWithdrawTime) + 86400;
 	getWithdrawTimer();
-	console.log("withdraw time",lastWithdrawTime);
+	//console.log("withdraw time",lastWithdrawTime);
 }
 async function getUserAvailable() {
   
@@ -217,7 +217,7 @@ function clearSelection() {
     }
 }
 async function contractBalances(){
-	console.log(web3)
+	//console.log(web3)
 	let contractBalanceFull = (await web3.eth.getBalance(tokenAddress) / 1e18)
 	let contractBalance = abrNum(contractBalanceFull, 4)
 	$('#balanceContract').text(contractBalance)
@@ -253,24 +253,27 @@ function getWithdrawTimer() {
 
 	const timeEnd = parseInt(nextWithdraw);
 	const milliseconds = timeEnd * 1000 // 1606073880000
+	const dateObject = new Date(milliseconds)
+	const humanDateFormat = dateObject.toLocaleString() 
+    //console.log(humanDateFormat)
 	//console.log("timer time",milliseconds);
 	
 	var x = setInterval(function () {
 	  var now = new Date().getTime();
-	  var distance = milliseconds - now;
+	  var distance = humanDateFormat - now;
 	  //var days = Math.floor(distance / (1000 * 60 * 60 * 24));
 	  var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
 	  var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
 	  var seconds = Math.floor((distance % (1000 * 60)) / 1000);
 	
-	  document.getElementById('withdrawTimer').innerHTML = "Withdraw in: "+hours + "h " + minutes + "m " + seconds + "s ";
+	  document.getElementById('withdrawTimer').innerHTML = humanDateFormat;
 	
-	  if (distance < 0) {
+	  if (milliseconds < timeEnd) {
 		clearInterval(x);
 		document.getElementById('withdrawTimer').innerHTML = "Withdraw SQP";
 	  }
 	
-	}, 1000);
+	}, );
 	}
 	async function beginLogins(){
 		await ethereum.request({method: 'eth_requestAccounts'})
