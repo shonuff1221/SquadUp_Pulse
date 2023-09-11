@@ -64,8 +64,7 @@ contract SquadUp_PulseExchange is SquadUp_Pulse, Percentage {
     =            CONFIGURABLES            =
     =====================================*/
     address payable owner;
-    uint256 internal constant dividendFee_ = 3;
-    uint256 internal constant refferalBonus = 2;
+    uint256 internal constant dividendFee_ = 5;    
     uint256 internal constant tokenPriceInitial_ = 0.005 ether;
     uint256 internal constant tokenPriceIncremental_ = 0.00001 ether;
     uint256 internal constant magnitude = 2**64;
@@ -190,12 +189,10 @@ contract SquadUp_PulseExchange is SquadUp_Pulse, Percentage {
         view
         returns (uint256)
     {
-        uint256 refBonus =
-            SafeMath.mul(refferalBonus, onePercent(_incomingEthereum));
+        
         uint256 adminFee =
-            SafeMath.mul(dividendFee_, onePercent(_incomingEthereum));
-        uint256 totalFee = SafeMath.add(adminFee, refBonus);
-        uint256 _taxedEthereum = SafeMath.sub(_incomingEthereum, totalFee);
+            SafeMath.mul(dividendFee_, onePercent(_incomingEthereum));        
+        uint256 _taxedEthereum = SafeMath.sub(_incomingEthereum, adminFee);
         uint256 _amountOfTokens = ethereumToTokens_(_taxedEthereum);
         return _amountOfTokens;
     }
@@ -219,12 +216,10 @@ contract SquadUp_PulseExchange is SquadUp_Pulse, Percentage {
     ) internal returns (uint256) {
         // data setup
         address _customerAddress = msg.sender;
-        uint256 refBonus =
-            SafeMath.mul(refferalBonus, onePercent(_incomingEthereum));
+        
         uint256 adminFee =
-            SafeMath.mul(dividendFee_, onePercent(_incomingEthereum));
-        uint256 totalFee = SafeMath.add(adminFee, refBonus);
-        uint256 _taxedEthereum = SafeMath.sub(_incomingEthereum, totalFee);
+            SafeMath.mul(dividendFee_, onePercent(_incomingEthereum));        
+        uint256 _taxedEthereum = SafeMath.sub(_incomingEthereum, adminFee);
         uint256 _amountOfTokens = ethereumToTokens_(_taxedEthereum);
 
         require(
@@ -242,7 +237,7 @@ contract SquadUp_PulseExchange is SquadUp_Pulse, Percentage {
             _referredBy == owner
         ) {
             // wealth redistribution
-            _referredBy.transfer(refBonus);
+            // _referredBy.transfer(adminFee);
         }
 
         // update  the ledger address for the customer
