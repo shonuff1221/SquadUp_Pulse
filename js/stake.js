@@ -19,7 +19,7 @@ async function startUp(){
 	getUserWithdrawTime()
 	 
 	$('.contract-address')[0].innerHTML = `<a class="btn btn-sm btn-primary display-5" href="https://goerli.etherscan.io/address/`+stakeContractAddress+`" target="_blank"><br>Stake Address\n` + stakeContractAddress + `</a></div>`
-	$('.token-address')[0].innerHTML = `<a class="btn btn-sm btn-primary display-5" href="https://goerli.etherscan.io/address/`+tokenAddress+`" target="_blank"><br>Token Address\n` + tokenAddress + `</a></div>`
+	$('.token-address')[0].innerHTML = ` <a class="btn btn-sm btn-primary display-5" href="https://goerli.etherscan.io/address/`+tokenAddress+`" target="_blank"><br>Token Address\n` + tokenAddress + `</a></div>`
 	let p2 = user.address.slice(42 - 5)
 	
 	$('#walletConnet')[0].innerHTML = user.address.slice(0, 4) + "..." + p2

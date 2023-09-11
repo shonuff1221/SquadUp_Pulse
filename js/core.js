@@ -76,6 +76,12 @@ $(document).ready(function() {
 		window.open(bscScan);
 		})
 	});
+	$("#tokenAddress").effect("fade", 2500, function() {
+		$("#tokenAddress").fadeIn();
+		$("#tokenAddress").on('click',function() {
+		window.open(bscScan);
+		})
+	});
 })
 const hamburger = document.querySelector(".hamburger");
 const navMenu = document.querySelector(".nav-menu");
