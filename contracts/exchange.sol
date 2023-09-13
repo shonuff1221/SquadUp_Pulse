@@ -65,8 +65,8 @@ contract SquadUp_PulseExchange is SquadUp_Pulse, Percentage {
     =====================================*/
     address payable owner;
     uint256 internal constant dividendFee_ = 5;    
-    uint256 internal constant tokenPriceInitial_ = 0.005 ether;
-    uint256 internal constant tokenPriceIncremental_ = 0.00001 ether;
+    uint256 internal constant tokenPriceInitial_ = 300.15 ether;
+    uint256 internal constant tokenPriceIncremental_ = 0.1 ether;
     uint256 internal constant magnitude = 2**64;
 
     // proof of stake (defaults at 1 token)

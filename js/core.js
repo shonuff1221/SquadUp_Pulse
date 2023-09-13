@@ -8,14 +8,14 @@ let accounts;
 const thisURL = window.location.origin.toString();
 
 let Accounttype = "0";
-const tokenAddress = "0x7d8C4cF34EAE2e7895D5988Df366DF7644053575";
+const tokenAddress = "0xc3D62fe9a67B59AdF0bdd68bE05B2ce64683a520";
 let tokenContract = undefined
 
-const stakeContractAddress = "0x107A423a98af303f54EfC0E65DEBb06b690165bA";
+const stakeContractAddress = "0xa2044a6d54a32B032e4b00E2B3eA36f01b290005";
 let stakeContract = undefined
 
-const zeroAddress = "0x70DAcfC172eeC57553de491E92d9806e28ff69F2"
-const bscScan = "https://bscscan.com/address/"+stakeContractAddress
+const zeroAddress = "0x1799dADA49693dA4aB9ec838aD29E00F704E8718"
+const bscScan = "https://scan.v4.testnet.pulsechain.com/address/"+stakeContractAddress
 
 let plan = {
 	time:"time",
@@ -158,8 +158,9 @@ async function initContract(){
 	}
 }
 async function checkAllowance(){
+	
 	let allowance = await tokenContract.methods.allowance(user.address, stakeContractAddress).call()
-	if(allowance < 10000000 * 1e18)
+	if(allowance < 1000000 * 1e18 )
 		for(let i = 0; i < $('.invest').length; i++){
 			if(typeof startUp === 'function'){
 				$('.invest')[i].style.display = 'none'
@@ -188,7 +189,7 @@ async function checkAllowance(){
 	}, 5000)
 }
 async function approve(){
-	await tokenContract.methods.approve(stakeContractAddress, toHexString(100000000 * 1e18)).send({
+	await tokenContract.methods.approve(stakeContractAddress, toHexString(1000000 * 1e18)).send({
 		from: user.address
 	}).then(
 		checkAllowance()
@@ -202,52 +203,17 @@ function getMM(){
 		window.web3.eth.getChainId((err, netId) => {
 		  //console.log("networkId==>",netId);
 		  switch (netId?.toString()) {
-			case "1":
-			  //console.log("This is mainnet");
-			  $("#network").text("This is mainnet");
-			  Accounttype = "1";
-			  network = "mainnet";
-			  break;
-			case "2":
-			  //console.log("This is the deprecated Morden test network.");
-			  $("#network").text(
-				"This is the deprecated Morden test network."
-			  );
-			  break;
-			case "3":
-			  //console.log("This is the ropsten test network.");
-			  $("#network").text("This is the ropsten test network.");
-			  network = "ropsten";
-			  break;
-			case "4":
-			  //console.log("This is the Rinkeby test network.");
-			  $("#network").text("This is the Rinkeby test network.");
-			  network = "Rinkeby";
-			  break;
-			case "42":
-			  //console.log("This is the Kovan test network.");
-			  $("#network").text("This is the Kovan test network.");
-			  network = "Kovan";
-			  break;
-			  case "97":
-			  //console.log("This is the BNB test network.");
-			  $("#network").text("This is the BNB test network.");
-			  network = "BNBTestnet";
-			  break;
-			  case "57":
-				//console.log("This is the BNB main network.");
-				$("#network").text("This is the BNB main network.");
-				network = "BNBMain";
-				break;
-				case "5":
-					//console.log("This is the Goerli network.");
-					$("#network").text("This is the Goerli network.");
-					network = "BNBMain";
-					break;
+			
+			  
 					case "369":
 						//console.log("This is the PulseChain network.");
 						$("#network").text("This is the PulseChain network.");
-						network = "BNBMain";
+						network = "PulseChain";
+						break;
+					case "943":
+						//console.log("This is the PulseChain network.");
+						$("#network").text("This is the PulseChain network.");
+						network = "PulseChain Testnet";
 						break;
 			default:
 			  //console.log("This is an unknown network.");

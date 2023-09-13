@@ -1,5 +1,12 @@
 
 function runDash(){
+	let ref
+	if(validateErcAddress(user.ref))
+		ref = user.ref
+	else if(user.ref == user.address)
+		ref = zeroAddress
+	else 
+		ref = zeroAddress
 	getTokenCounts()
 	getRefCount()
 	let p2 = user.address.slice(42 - 5)
@@ -7,22 +14,11 @@ function runDash(){
 	setTimeout(() => {
 		runDash()
 	}, 10000)
+	
 }
 
 async function getTokenCounts(){
-	totalTokens = await tokenContract.methods.totalSupply().call() / 1e18
-	$('.total-tokens')[0].innerHTML = abrNum(totalTokens, 2)
 	
-	circulatingTokens = await tokenContract.methods.totalSupply().call() / 1e18
-	
-	tokenBuyPrice = await tokenContract.methods.calculateTokensReceived(toHexString(1e18)).call() / 1e18
-	tokenSellPrice = await tokenContract.methods.calculateEthereumReceived(toHexString(1e18)).call() / 1e18
-	
-	$('.token-buy-price')[0].innerHTML = "1 Pulse = " + abrNum(tokenBuyPrice, 4) +" SQUAD"
-	// if(circulatingTokens > 0)
-	// 	$('.token-sell-price')[0].innerHTML = abrNum(tokenSellPrice/1e18, 4) +" SqdUp Tokens : 1 BNB"
-	// else
-	// 	$('.token-sell-price')[0].innerHTML = ''
 	
 	userTokens = await tokenContract.methods.balanceOf(user.address).call() / 1e18
 	$('.user-tokens')[0].innerHTML = abrNum(userTokens,2)

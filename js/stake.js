@@ -18,10 +18,20 @@ async function startUp(){
 	getUserReferralBonus()
 	getUserWithdrawTime()
 	 
-	$('.contract-address')[0].innerHTML = `<a class="btn btn-sm btn-primary display-5" href="https://goerli.etherscan.io/address/`+stakeContractAddress+`" target="_blank"><br>Stake Address\n` + stakeContractAddress + `</a></div>`
-	$('.token-address')[0].innerHTML = ` <a class="btn btn-sm btn-primary display-5" href="https://goerli.etherscan.io/address/`+tokenAddress+`" target="_blank"><br>Token Address\n` + tokenAddress + `</a></div>`
+	$('.contract-address')[0].innerHTML = `<a class="btn btn-sm btn-primary display-5" href="https://scan.v4.testnet.pulsechain.com/address/`+stakeContractAddress+`" target="_blank"><br>Stake Address\n` + stakeContractAddress + `</a></div>`
+	$('.token-address')[0].innerHTML = ` <a class="btn btn-sm btn-primary display-5" href="https://scan.v4.testnet.pulsechain.com/address/`+tokenAddress+`" target="_blank"><br>Token Address\n` + tokenAddress + `</a></div>`
 	let p2 = user.address.slice(42 - 5)
-	
+
+	async function updateRef(){	
+	let ref
+	if(validateErcAddress(user.ref))
+		ref = user.ref
+	else if(user.ref == user.address)
+		ref = zeroAddress
+	else 
+		ref = zeroAddress
+	}
+	$('.refAddress')[0].innerHTML = `<a class="btn btn-sm btn-primary display-me" "><br>Current Referral Address\n` + user.ref + `</a></div>`
 	$('#walletConnet')[0].innerHTML = user.address.slice(0, 4) + "..." + p2
 	setTimeout(() => {
 		startUp()
@@ -218,7 +228,7 @@ function clearSelection() {
 }
 async function contractBalances(){
 	//console.log(web3)
-	let contractBalanceFull = (await web3.eth.getBalance(tokenAddress) / 1e18)
+	let contractBalanceFull = (await stakeContract.methods.getContractBalance().call() / 1e18)
 	let contractBalance = abrNum(contractBalanceFull, 4)
 	$('#balanceContract').text(contractBalance)
 	let totalStakedFull = (await stakeContract.methods.totalStaked().call() / 1e18)

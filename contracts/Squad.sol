@@ -498,7 +498,7 @@ contract ERC20 is Context, IERC20 {
     string private _name;
     string private _symbol;
     uint8 private _decimals;
-
+    
     /**
      * @dev Sets the values for {name} and {symbol}, initializes {decimals} with
      * a default value of 18.
@@ -509,9 +509,12 @@ contract ERC20 is Context, IERC20 {
      * construction.
      */
     constructor(string memory name, string memory symbol) public {
+        
         _name = name;
         _symbol = symbol;
         _decimals = 18;
+        // _mint(msg.sender, initialSupply);
+        
     }
 
     /**
@@ -829,5 +832,7 @@ contract ERC20 is Context, IERC20 {
  * Code is proprietary property of Zin Finance and must not be copied or used elsewhere.
  */
 contract SquadUp_Pulse is ERC20 {
-    constructor() public ERC20("SquadUpPulse", "SQD") {}
+    constructor() public ERC20("SquadUpPulse", "SQD" ) {
+       
+    }
 }
