@@ -18,8 +18,8 @@ async function startUp(){
 	getUserReferralBonus()
 	getUserWithdrawTime()
 	 
-	$('.contract-address')[0].innerHTML = `<a class="btn btn-sm btn-primary display-5" href="https://scan.v4.testnet.pulsechain.com/address/`+stakeContractAddress+`" target="_blank"><br>Stake Address\n` + stakeContractAddress + `</a></div>`
-	$('.token-address')[0].innerHTML = ` <a class="btn btn-sm btn-primary display-5" href="https://scan.v4.testnet.pulsechain.com/address/`+tokenAddress+`" target="_blank"><br>Token Address\n` + tokenAddress + `</a></div>`
+	$('.contract-address')[0].innerHTML = `<a class="btn btn-sm btn-primary display-5" href="https://scan.pulsechain.com/address/`+stakeContractAddress+`" target="_blank"><br>Stake Address\n` + stakeContractAddress + `</a></div>`
+	$('.token-address')[0].innerHTML = ` <a class="btn btn-sm btn-primary display-5" href="https://scan.pulsechain.com/address/`+tokenAddress+`" target="_blank"><br>Token Address\n` + tokenAddress + `</a></div>`
 	let p2 = user.address.slice(42 - 5)
 
 	async function updateRef(){	
@@ -37,6 +37,36 @@ async function startUp(){
 		startUp()
 	}, 10000)
 }
+window.alert = function(message, timeout=3500){
+	const alert = document.createElement('div');
+	const alertButton = document.createElement('button')
+	alertButton.innerText ='OK';	
+	alert.classList.add('my-alert');
+	alert.setAttribute('style',`
+		position:fixed;
+		top: 50%;
+		left: 50%;
+		padding: 40px;
+		border-raduis: 10px;
+		box-shadow: 0 10px 5 px 0 #00000044;
+		display:flex;
+		flex-direction:coloumn;
+		border: 1px solid #333;
+		transform: translateX(-50%);
+		`);
+		
+		alert.innerHTML = `<span style="padding:10px">${message}</span>`;
+		
+		alertButton.addEventListener('click', (e)=>{
+			alert.remove();
+		})
+		document.body.appendChild(alert);
+		if(timeout !=null){
+			setTimeout(() => {
+				alert.remove();
+			}, Number(timeout));
+		}
+}
 
 async function stake(planId){
 	let tokens = 0
@@ -52,7 +82,10 @@ async function stake(planId){
   	await stakeContract.methods.invest(ref, planId, stakeAmount).send({
 		from: user.address
 	}).then(res => {
-		alert( 'TX Hash\n https://goerli.etherscan.io/tx/'+res.blockHash+ '\nReferrer\n'+ref );
+		alert( 'TX Hash\n https://scan.pulsechain.com/tx/'+res.blockHash+ '\nReferrer\n'+ref );
+		//$.notify("Success "+ '\nTX Hash\n https://goerli.etherscan.io/tx/'+res.blockHash+ '\nReferrer\n'+ref, `{type:"success",class:"my-alert", delay:0, align:"center", verticalAlign:"middle", animationType:"scale" ,icon:"check"}`);
+		
+
 		getTotalNumberOfDeposits()
 		getUserDepositInfo()
 		console.log(res)
@@ -182,6 +215,7 @@ async function getUserDepositInfo() {
 			
 		} catch (error) {
 			alert(error);
+			//$.notify(error, {class:"my-alert", delay:0, align:"center", verticalAlign:"middle", animationType:"scale"});
 		}
 	}	
 }
@@ -217,6 +251,7 @@ function copyToClipboard(reflink) {
 	document.execCommand("copy");
 	document.body.removeChild(aux);
 	alert("Copied");
+	//$.notify("Copied!",`{color: "#D44950"}`);
 }
 
 function clearSelection() {

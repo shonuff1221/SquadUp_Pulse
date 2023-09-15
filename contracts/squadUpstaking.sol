@@ -3,6 +3,7 @@
 pragma solidity ^0.6.0;
 import "./IERC20.sol";
 
+
 contract Percentage {
     uint256 public baseValue = 100;
 
@@ -20,12 +21,11 @@ contract SQP_Staking is Percentage {
     using SafeMath for uint256;
 
     uint256 public constant INVEST_MIN_AMOUNT = 0.05 ether;
-    uint256[] public REFERRAL_PERCENTS = [50, 25, 5];
-    uint256 public constant PROJECT_FEE = 100;
+    uint256[] public REFERRAL_PERCENTS = [50, 25, 5];    
     uint256 public constant PERCENT_STEP = 5;
     uint256 public constant PERCENTS_DIVIDER = 1000;
     uint256 public constant TIME_STEP = 1 days;
-    uint256 public constant withDrawFee = 50;
+    uint256 public constant withDrawFee = 5;
     SquadUp_Pulse public token;
     uint256 public totalStaked;
     uint256 public totalRefBonus;
@@ -107,7 +107,7 @@ contract SQP_Staking is Percentage {
         require(startUNIX <= now, "Contract hasn't started yet");
         require(
             _numberOfToken >= INVEST_MIN_AMOUNT,
-            "Minimum amount is 1 token"
+            "Minimum amount is 0.05 SQP"
         );
         require(plan < 6, "Invalid plan");
         require(
@@ -183,7 +183,7 @@ contract SQP_Staking is Percentage {
     function withdraw() public {
         require(
             now >= users[msg.sender].lastDepositTime + 1 days,
-            "You can't withdraw before a day"
+            "one Withdraw per 24 hours"
         );
         User storage user = users[msg.sender];
 
@@ -204,8 +204,7 @@ contract SQP_Staking is Percentage {
 
         user.checkpoint = block.timestamp;
         uint256 contractFee = SafeMath.mul(
-            withDrawFee,
-            onePercent(totalAmount)
+            withDrawFee,onePercent(totalAmount)
         );
         uint256 totalPayouts = SafeMath.sub(totalAmount, contractFee);
         token.transfer(msg.sender, totalPayouts);

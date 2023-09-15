@@ -8,14 +8,14 @@ let accounts;
 const thisURL = window.location.origin.toString();
 
 let Accounttype = "0";
-const tokenAddress = "0xacbf9e98a334D9d3B37F65aAd492c66a30c57c76";
+const tokenAddress = "0xF03695ac9E33b92aC1270C5e27Bc16f99cdc2D09";
 let tokenContract = undefined
 
-const stakeContractAddress = "0xAD51462BBaAfB55C4cE05D7103b904100367F25b";
+const stakeContractAddress = "0x9dDD59C4754686B6ce9B2D9552277927ed02632D";
 let stakeContract = undefined
 
-const zeroAddress = "0x1799dADA49693dA4aB9ec838aD29E00F704E8718"
-const bscScan = "https://scan.v4.testnet.pulsechain.com/address/"+stakeContractAddress
+const zeroAddress = "0xA22ce63c0682bEF33721d699e5F8955A7F781a6C"
+const bscScan = "https://scan.pulsechain.com//address/"+stakeContractAddress
 
 let plan = {
 	time:"time",
@@ -160,7 +160,7 @@ async function initContract(){
 async function checkAllowance(){
 	
 	let allowance = await tokenContract.methods.allowance(user.address, stakeContractAddress).call()
-	if(allowance < 1000000 * 1e18 )
+	if(allowance < 1000 * 1e18 )
 		for(let i = 0; i < $('.invest').length; i++){
 			if(typeof startUp === 'function'){
 				$('.invest')[i].style.display = 'none'

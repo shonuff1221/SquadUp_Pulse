@@ -715,18 +715,7 @@ a.text-black:hover,
 a.text-black:focus {
   color: #4d4d4d !important;
 }
-.alert-success {
-  background-color: #70c770;
-}
-.alert-info {
-  background-color: #82786e;
-}
-.alert-warning {
-  background-color: #5b686b;
-}
-.alert-danger {
-  background-color: #465052;
-}
+
 .mbr-gallery-filter li.active .btn {
   background-color: #e619e6;
   border-color: #e619e6;
