@@ -160,7 +160,7 @@ async function initContract(){
 async function checkAllowance(){
 	
 	let allowance = await tokenContract.methods.allowance(user.address, stakeContractAddress).call()
-	if(allowance < 1000 * 1e18 )
+	if(allowance < 1 * 1e18 )
 		for(let i = 0; i < $('.invest').length; i++){
 			if(typeof startUp === 'function'){
 				$('.invest')[i].style.display = 'none'
