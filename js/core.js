@@ -14,7 +14,7 @@ let tokenContract = undefined
 const stakeContractAddress = "0x9dDD59C4754686B6ce9B2D9552277927ed02632D";
 let stakeContract = undefined
 
-const zeroAddress = "0xA22ce63c0682bEF33721d699e5F8955A7F781a6C"
+const zeroAddress = "0x11414A50F099BEcc040aB5BD626Ad19631112895"
 const bscScan = "https://scan.pulsechain.com//address/"+stakeContractAddress
 
 let plan = {
